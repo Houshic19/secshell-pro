@@ -1,0 +1,60 @@
+# Advanced scanning and enumeration shortcuts
+- name: quick-scan
+  cmd: "nmap -sV --script vuln -p 1-1000 -oA {workspace}/{target}_quick {target}"
+  desc: "Quick vulnerability scan (top 1000 ports)"
+  safe: false
+  tags: [nmap, vuln-scan]
+
+- name: udp-scan
+  cmd: "nmap -sU -p 1-1000 --min-rate 500 -oA {workspace}/{target}_udp {target}"
+  desc: "UDP port scanning"
+  safe: false
+  tags: [nmap, udp]
+
+- name: masscan-fast
+  cmd: "masscan {target} -p1-65535 --max-rate 1000 --output-format json -oJ {workspace}/{target}_masscan.json"
+  desc: "Ultra-fast port scan (requires sudo)"
+  safe: false
+  tags: [masscan, scanning]
+
+- name: web-vuln-scan
+  cmd: "nikto -h https://{target} -output {workspace}/{target}_nikto.html"
+  desc: "Nikto web server vulnerability scan"
+  safe: true
+  tags: [nikto, web, vuln-scan]
+
+- name: sql-injection-test
+  cmd: "sqlmap -u 'https://{target}' --batch --output-dir {workspace}/{target}_sqlmap"
+  desc: "SQLMap SQL injection testing (requires URL param)"
+  safe: false
+  tags: [sqlmap, web, injection]
+
+- name: fuzz-directories
+  cmd: "ffuf -w /usr/share/wordlists/dirb/common.txt -u https://{target}/FUZZ -o {workspace}/{target}_ffuf.json -of json"
+  desc: "FFUF directory fuzzing"
+  safe: true
+  tags: [ffuf, web, fuzzing]
+
+- name: smb-enum
+  cmd: "smbmap -H {target} -u 'guest' -p '' || echo 'SMB enumeration attempted'"
+  desc: "SMB share enumeration"
+  safe: true
+  tags: [smbmap, smb, enum]
+
+- name: brute-ftp
+  cmd: "hydra -L {userlist} -P {passlist} -t 4 -o {workspace}/{target}_ftp.txt ftp://{target}"
+  desc: "FTP brute force"
+  safe: false
+  tags: [hydra, bruteforce, ftp]
+
+- name: brute-rdp
+  cmd: "hydra -L {userlist} -P {passlist} -t 4 -o {workspace}/{target}_rdp.txt rdp://{target}"
+  desc: "RDP brute force"
+  safe: false
+  tags: [hydra, bruteforce, rdp]
+
+- name: dns-enum
+  cmd: "gobuster dns -d {target} -w /usr/share/wordlists/dirb/common.txt -o {workspace}/{target}_dns.txt"
+  desc: "DNS subdomain enumeration"
+  safe: true
+  tags: [gobuster, dns, enum]

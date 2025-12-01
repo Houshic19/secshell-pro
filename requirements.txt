@@ -1,0 +1,12 @@
+prompt_toolkit>=3.0
+PyYAML
+rich
+requests
+tqdm
+python-dotenv
+defusedxml
+beautifulsoup4
+lxml
+reportlab
+fuzzywuzzy
+python-Levenshtein

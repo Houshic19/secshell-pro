@@ -1,0 +1,6 @@
+- name: watch-ssh
+  cmd: "python3 core/watch_ssh.py --log /var/log/auth.log --out {workspace}/ssh_alerts.json"
+  desc: "Monitor SSH auth logs for brute force"
+  safe: true
+  output: json
+  tags: [soc]

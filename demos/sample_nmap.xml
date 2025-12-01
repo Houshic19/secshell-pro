@@ -1,0 +1,3 @@
+<nmaprun scanner="nmap" args="">
+  <!-- Minimal demo xml for parser tests -->
+</nmaprun>

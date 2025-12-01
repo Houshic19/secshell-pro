@@ -1,0 +1,17 @@
+  ____            _____ _     _ _ _ 
+ / ___|  ___  ___| ____| |   (_) | |
+ \___ \ / _ \/ __|  _| | |   | | | |
+  ___) |  __/ (__| |___| |___| | | |
+ |____/ \___|\___|_____|_____|_|_|_|
+
+[bold magenta]SecShell — Smarter Cybersecurity Terminal (Hybrid)[/bold magenta]
+[dim]Be ethical. Use only on authorized targets.[/dim]
+
+[bold yellow]Created by:[/bold yellow] [bold cyan]Houshic Balasubramanian[/bold cyan]
+
+[green]☕ Powered by coffee, curiosity & a little bit of chaos[/green]
+[blue]⚡ Fast scans. Slow jokes. Zero regrets.[/blue]
+
+[italic]"If it pings, we sing. If it breaks, we fix (or panic)."[/italic]
+
+[bold magenta]Have fun — responsibly.[/bold magenta]

@@ -1,0 +1,16 @@
+workspace: ./reports
+plugins_dir: ./plugins
+shortcuts_dir: ./shortcuts
+auto_update_feed: ""
+update_check_interval_hours: 24
+
+openai_api_key: ""  # Add your API key here if you want to enable AI features
+use_local_llm: false
+local_llm_cmd: ""
+
+allow_auto_update: false
+backup_shortcuts_before_update: true
+
+learner_db: ./reports/learner_db.json
+
+default_dry_run: false

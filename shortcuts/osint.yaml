@@ -1,0 +1,6 @@
+- name: osint-domain
+  cmd: "python3 core/osint_domain.py --domain {target} --out {workspace}/{target}_osint.json"
+  desc: "OSINT domain probe (whois, certs, subdomain hints)"
+  safe: true
+  output: json
+  tags: [osint]

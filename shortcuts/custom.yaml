@@ -1,0 +1,6 @@
+shortcuts:
+- category: custom
+  cmd: echo test {target}
+  desc: Test shortcut
+  name: test-shortcut
+  safe: true

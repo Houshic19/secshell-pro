@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # release on semver tags, e.g. v1.0.0
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pip install pytest
+          pytest -q
+
+      - name: Create zip artifact
+        run: |
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          ZIP_NAME="secshell_pro_${{ github.ref_name }}_${TIMESTAMP}.zip"
+          git archive -o "$ZIP_NAME" --prefix=SecShell_PRO/ HEAD
+          echo "Created $ZIP_NAME"
+        # persist zip
+      - name: Upload release artifact
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "*.zip"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
